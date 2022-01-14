@@ -1,15 +1,8 @@
 from fastapi import FastAPI
-
+from routers import get_products,post_products
 app = FastAPI()
 
-
-# get the all products
-@app.get('/products/all')
-def get_products():
-    return {'message': 'All products provided !!'}
+app.include_router(get_products.router)
+app.include_router(post_products.router)
 
 
-# get product by id
-@app.get('/product/{product_id}')
-def get_by_id(product_id: int):
-    return {'message': f'Product ID is {product_id}'}

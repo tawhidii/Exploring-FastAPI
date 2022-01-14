@@ -45,7 +45,7 @@ class CommentModel(BaseModel):
 @router.post('/new/{id}/comment')
 def create_comment(comment: CommentModel,
                    id: int,
-                   comment_title: int = Query(None,
+                   comment_title: str = Query(None,
                                               alias='commentId',
                                               deprecated=True),
                    comment_id: int = Path(None, ge=3, le=5),
